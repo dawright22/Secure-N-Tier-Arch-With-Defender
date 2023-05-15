@@ -10,13 +10,25 @@ terraform {
       source  = "hashicorp/random"
       version = "~>3.0"
     }
+    hcp = {
+      source = "hashicorp/hcp"
+      version = "0.56.0"
+    }
   }
 }
 
 
+provider "hcp" {
+  # Configuration options
+ client_id     = var.client_id
+ client_secret = var.client_secret
+}
+
 provider "azurerm" {
   features {}
 }
+
+provider "azuread" {}
 
 resource "random_pet" "name" {
   prefix = var.resource_group_name_prefix
@@ -150,3 +162,14 @@ module "defender" {
 }
 
 
+######################################
+# Deploy HCP Vault.
+######################################
+module "hcp_vault_cluster" {
+  source                  = "./modules/hcp_vault"
+  name                    = random_pet.name.id
+  resource_group_location = var.resource_group_location
+  resource_group_name     = azurerm_resource_group.rg.name
+  VNet                    = module.networks.Net-vm-ref-arch
+  hcp_region              = var.hcp_region
+}

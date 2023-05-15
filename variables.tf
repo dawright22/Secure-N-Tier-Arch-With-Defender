@@ -69,3 +69,21 @@ variable "phone" {
     description = "Phone number to send alerts to"
     default = "555-555-5555"
 }
+
+variable "client_id" {
+  description = "The ID of the HCP Vault cluster client."
+  type        = string
+  default     = "Y9cDGhRE0tZLn2b2cetjrWym04xfOJs1"
+}
+
+variable "client_secret" {
+    type = string
+    description = "The Key of the HCP Vault cluster client."
+    default = "CXPpNC3cg-nwoeZH5C5xnyT_1O-NFRjyCOHC2hynVlsOrQreEX-LyPHzbBn9urEX"
+}
+
+variable "hcp_region" {
+  description = "The region of the HCP HVN and Vault cluster."
+  type        = string
+  default     = "westus2"
+}
