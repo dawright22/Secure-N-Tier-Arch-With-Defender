@@ -73,13 +73,13 @@ variable "phone" {
 variable "client_id" {
   description = "The ID of the HCP Vault cluster client."
   type        = string
-  default     = "Y9cDGhRE0tZLn2b2cetjrWym04xfOJs1"
+  default     = "xxxxxxxxxxxxxxxxx"
 }
 
 variable "client_secret" {
     type = string
     description = "The Key of the HCP Vault cluster client."
-    default = "CXPpNC3cg-nwoeZH5C5xnyT_1O-NFRjyCOHC2hynVlsOrQreEX-LyPHzbBn9urEX"
+    default = "xxxxxxxxxxxxxxxxxxxxxxxxxx"
 }
 
 variable "hcp_region" {
